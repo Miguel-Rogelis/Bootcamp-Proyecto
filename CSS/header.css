@@ -1,0 +1,71 @@
+.header {
+    background-color: var(--fondo);
+    border-bottom: 1px solid var(--borde);
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--fuente-mono);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--acento) !important;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.navbar .nav-link {
+    color: var(--texto-suave) !important;
+    font-family: var(--fuente-mono);
+    font-size: 14px;
+    padding: 6px 0 !important;
+    transition: color 0.2s;
+}
+
+.navbar .nav-link:hover {
+    color: var(--acento) !important;
+}
+
+.btn-nav {
+    background-color: transparent;
+    color: var(--acento);
+    border: 1px solid var(--acento);
+    padding: 9px 20px;
+    border-radius: 4px;
+    font-family: var(--fuente-mono);
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-nav:hover {
+    background-color: var(--acento);
+    color: #0d0d0d;
+}
+
+.navbar-toggler {
+    padding: 6px;
+}
+
+.toggler-icono {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--texto);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.navbar-collapse {
+    background-color: var(--fondo);
+    padding: 12px 0;
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        background-color: transparent;
+        padding: 0;
+    }
+}
