@@ -1,0 +1,48 @@
+.footer {
+    background-color: var(--fondo-2);
+    border-top: 1px solid var(--borde);
+    padding: 40px 0 20px 0;
+}
+
+
+.footer-contenido {
+    margin-bottom: 24px;
+}
+
+.footer-logo {
+    font-family: var(--fuente-mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--acento);
+}
+
+.footer-contenido p {
+    font-family: var(--fuente-mono);
+    font-size: 12px;
+    color: var(--texto-suave);
+}
+
+.footer-redes a {
+    font-family: var(--fuente-mono);
+    font-size: 13px;
+    color: var(--texto-suave);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-redes a:hover {
+    color: var(--acento);
+}
+
+.footer-copy {
+    border-top: 1px solid var(--borde);
+    padding-top: 16px;
+    text-align: center;
+}
+
+.footer-copy p {
+    font-family: var(--fuente-mono);
+    font-size: 11px;
+    color: var(--texto-suave);
+    margin: 0;
+}

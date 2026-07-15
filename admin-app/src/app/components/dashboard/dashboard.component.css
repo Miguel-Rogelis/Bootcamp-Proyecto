@@ -1,0 +1,242 @@
+.dashboard {
+    min-height: 100vh;
+    background: #0d0d10;
+    color: #e8e8e8;
+    padding: 1.5rem;
+    font-family: system-ui, sans-serif;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-marca {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.dashboard-logo {
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #e8c547;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.dashboard-marca h1 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.dashboard-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #a1a1aa;
+}
+
+.dashboard-usuario .btn-secundario {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.formulario-card, .lista-card {
+    background: #16161c;
+    border: 1px solid #ffffff1a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.fila {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fila .campo-grupo {
+    flex: 1 1 250px;
+}
+
+.campo-grupo {
+    margin-bottom: 1rem;
+}
+
+.campo-grupo label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+    color: #a1a1aa;
+}
+
+.campo {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ffffff26;
+    background: #0d0d10;
+    color: #e8e8e8;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.checkbox-grupo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: #a1a1aa;
+}
+
+.botones {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn-primario, .btn-secundario, .btn-mini {
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background: #7C3AED;
+    color: white;
+}
+
+.btn-primario:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-secundario {
+    background: transparent;
+    border: 1px solid #ffffff33;
+    color: #e8e8e8;
+}
+
+.btn-mini {
+    background: #ffffff14;
+    color: #e8e8e8;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+}
+
+.btn-peligro {
+    background: #fca5a533;
+    color: #fca5a5;
+}
+
+.tabla-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid #ffffff14;
+    font-size: 0.9rem;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.estado-vacio {
+    color: #a1a1aa;
+    font-style: italic;
+}
+
+.alerta {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.alerta-error {
+    background: #fca5a533;
+    color: #fca5a5;
+    border: 1px solid #fca5a555;
+}
+
+.badge-sin-leer {
+    display: inline-block;
+    background: #7C3AED;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+}
+
+.mensajes-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mensaje-item {
+    background: #0d0d10;
+    border: 1px solid #ffffff1a;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.mensaje-item:hover {
+    border-color: #ffffff40;
+}
+
+.mensaje-no-leido {
+    border-left: 3px solid #7C3AED;
+}
+
+.mensaje-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: baseline;
+    margin-bottom: 0.4rem;
+}
+
+.mensaje-email {
+    color: #a1a1aa;
+    font-size: 0.85rem;
+}
+
+.mensaje-fecha {
+    color: #71717a;
+    font-size: 0.78rem;
+    margin-left: auto;
+}
+
+.mensaje-asunto {
+    margin: 0 0 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+.mensaje-texto {
+    margin: 0 0 0.6rem 0;
+    color: #d4d4d8;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+}

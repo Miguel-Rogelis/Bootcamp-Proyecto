@@ -1,0 +1,137 @@
+<div class="dashboard">
+    <header class="dashboard-header">
+        <div class="dashboard-marca">
+            <a routerLink="/" class="dashboard-logo">MR</a>
+            <h1>Panel admin</h1>
+        </div>
+        <div class="dashboard-usuario">
+            <a routerLink="/" class="btn-secundario">Ver portafolio</a>
+            @if (usuario) {
+                <span>{{ usuario.nombre }}</span>
+            }
+            <button class="btn-secundario" (click)="cerrarSesion()">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <section class="lista-card">
+        <h2>
+            Mensajes de contacto ({{ mensajes.length }})
+            @if (mensajesSinLeer > 0) {
+                <span class="badge-sin-leer">{{ mensajesSinLeer }} sin leer</span>
+            }
+        </h2>
+
+        @if (errorMensajes) {
+            <div class="alerta alerta-error">{{ errorMensajes }}</div>
+        }
+
+        @if (cargandoMensajes) {
+            <p class="estado-vacio">Cargando mensajes...</p>
+        } @else if (mensajes.length === 0) {
+            <p class="estado-vacio">Todavía no has recibido mensajes desde el portafolio.</p>
+        } @else {
+            <div class="mensajes-lista">
+                @for (mensaje of mensajes; track mensaje._id) {
+                    <div class="mensaje-item" [class.mensaje-no-leido]="!mensaje.leido" (click)="marcarLeido(mensaje)">
+                        <div class="mensaje-cabecera">
+                            <strong>{{ mensaje.nombre }}</strong>
+                            <span class="mensaje-email">{{ mensaje.email }}</span>
+                            @if (mensaje.createdAt) {
+                                <span class="mensaje-fecha">{{ mensaje.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+                            }
+                        </div>
+                        @if (mensaje.asunto) {
+                            <p class="mensaje-asunto"><strong>Asunto:</strong> {{ mensaje.asunto }}</p>
+                        }
+                        <p class="mensaje-texto">{{ mensaje.mensaje }}</p>
+                        <div class="acciones">
+                            <button class="btn-mini btn-peligro" (click)="eliminarMensaje(mensaje); $event.stopPropagation()">Borrar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </section>
+
+    @if (error) {
+        <div class="alerta alerta-error">{{ error }}</div>
+    }
+
+    <section class="formulario-card">
+        <h2>{{ editandoId ? 'Editar proyecto' : 'Nuevo proyecto' }}</h2>
+        <form (ngSubmit)="guardar()" #proyectoForm="ngForm">
+            <div class="fila">
+                <div class="campo-grupo">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" [(ngModel)]="formulario.titulo" required class="campo">
+                </div>
+                <div class="campo-grupo">
+                    <label for="enlace">Enlace</label>
+                    <input type="text" id="enlace" name="enlace" [(ngModel)]="formulario.enlace" class="campo">
+                </div>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" [(ngModel)]="formulario.descripcion" required class="campo" rows="3"></textarea>
+            </div>
+
+            <div class="fila">
+                <div class="campo-grupo">
+                    <label for="imagen">URL de imagen</label>
+                    <input type="text" id="imagen" name="imagen" [(ngModel)]="formulario.imagen" class="campo">
+                </div>
+                <div class="campo-grupo">
+                    <label for="tecnologias">Tecnologías (separadas por coma)</label>
+                    <input type="text" id="tecnologias" name="tecnologias" [(ngModel)]="tecnologiasTexto" placeholder="HTML, CSS, Angular" class="campo">
+                </div>
+            </div>
+
+            <label class="checkbox-grupo">
+                <input type="checkbox" name="destacado" [(ngModel)]="formulario.destacado">
+                Destacado
+            </label>
+
+            <div class="botones">
+                <button type="submit" class="btn-primario" [disabled]="!proyectoForm.form.valid">
+                    {{ editandoId ? 'Guardar cambios' : 'Crear proyecto' }}
+                </button>
+                @if (editandoId) {
+                    <button type="button" class="btn-secundario" (click)="cancelarEdicion()">Cancelar</button>
+                }
+            </div>
+        </form>
+    </section>
+
+    <section class="lista-card">
+        <h2>Proyectos ({{ proyectos.length }})</h2>
+
+        @if (cargando) {
+            <p class="estado-vacio">Cargando proyectos...</p>
+        } @else if (proyectos.length === 0) {
+            <p class="estado-vacio">Todavía no hay proyectos. Crea el primero arriba.</p>
+        } @else {
+            <div class="tabla-scroll">
+                <table>
+                    <tr>
+                        <th>Título</th>
+                        <th>Tecnologías</th>
+                        <th>Destacado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    @for (proyecto of proyectos; track proyecto._id) {
+                        <tr>
+                            <td>{{ proyecto.titulo }}</td>
+                            <td>{{ proyecto.tecnologias?.join(', ') }}</td>
+                            <td>{{ proyecto.destacado ? 'Sí' : 'No' }}</td>
+                            <td class="acciones">
+                                <button class="btn-mini" (click)="editar(proyecto)">Editar</button>
+                                <button class="btn-mini btn-peligro" (click)="eliminar(proyecto)">Borrar</button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+    </section>
+</div>
