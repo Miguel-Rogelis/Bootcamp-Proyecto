@@ -1,0 +1,29 @@
+/* Los estilos del portafolio se cargan globalmente desde src/styles/portafolio/ */
+
+.proyecto-estado-vacio {
+    color: var(--texto-suave);
+    font-family: var(--fuente-mono);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.contacto-alerta {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+    font-family: var(--fuente-mono);
+    font-size: 0.85rem;
+}
+
+.contacto-alerta-exito {
+    background-color: #4caf5033;
+    color: #81c784;
+    border: 1px solid #4caf5055;
+}
+
+.contacto-alerta-error {
+    background-color: #e8534733;
+    color: #ff8a80;
+    border: 1px solid #e8534755;
+}
