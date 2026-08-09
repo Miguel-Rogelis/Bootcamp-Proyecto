@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://TU-DOMINIO-DE-PRODUCCION.com/api'
+    apiUrl: 'https://mi-portafolio.com/api'
 };
